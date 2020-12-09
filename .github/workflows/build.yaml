@@ -26,6 +26,7 @@ jobs:
 
       - name: Build trpl book
         run: |
+          cd trpl-zh-cn
           npm i -g vuepress
           vuepress build ./src
           ls ./src/.vuepress/dist/
