@@ -30,11 +30,6 @@ jobs:
           npm i -g vuepress
           vuepress build ./src
 
-  deploy:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    needs: [build]
-    steps:
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
         with:
