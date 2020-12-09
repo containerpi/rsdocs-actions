@@ -15,18 +15,19 @@ jobs:
     timeout-minutes: 5
     steps:
     - uses: actions/checkout@v2
-      - name: Setup node 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup node 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+        
+    - name: Clone trpl book
+      run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - run: git clone https://github.com/KaiserY/trpl-zh-cn.git
-      - name: Build trpl book
-      - run: |
-          npm i -g vuepress
-          vuepress build ./src
-          ls ./src/.vuepress/dist/
+    # - run: git clone https://github.com/KaiserY/trpl-zh-cn.git
+    - name: Build trpl book
+    - run: |
+        npm i -g vuepress
+        vuepress build ./src
+        ls ./src/.vuepress/dist/
