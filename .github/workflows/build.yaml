@@ -38,7 +38,7 @@ jobs:
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
         with:
-          src: ./src/.vuepress/dist/
+          src: ./*
           host: ${{ secrets.SSH_REMOTE_HOST }}
           remote: /data/trpl
           port: ${{ secrets.SSH_REMOTE_PORT }}
