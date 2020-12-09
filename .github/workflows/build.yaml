@@ -29,7 +29,6 @@ jobs:
           cd trpl-zh-cn
           npm i -g vuepress
           vuepress build ./src
-          ls ./src/.vuepress/dist/
 
   deploy:
     runs-on: ubuntu-latest
@@ -39,7 +38,7 @@ jobs:
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
         with:
-          src: trpl-zh-cn/src/.vuepress/dist/
+          src: ./src/.vuepress/dist/
           host: ${{ secrets.SSH_REMOTE_HOST }}
           remote: /data/trpl
           port: ${{ secrets.SSH_REMOTE_PORT }}
