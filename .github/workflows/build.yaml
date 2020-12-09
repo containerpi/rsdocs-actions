@@ -32,6 +32,8 @@ jobs:
           ls ./src/.vuepress/dist/
 
   deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
