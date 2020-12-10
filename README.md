@@ -24,7 +24,7 @@ See the [releases] to download just the code of all the code listings that appea
 ## Requirements
 
 Building the book requires [mdBook], ideally the same version that
-rust-lang/rust uses in [this file][rust-mdbook]. To get it:
+rust-lang/rust uses in [this file][rust-mdbook].
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
