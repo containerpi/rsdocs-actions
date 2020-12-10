@@ -1,5 +1,5 @@
 
-name: Build for TRPL Book
+name: Build for TRPL(The Rust Programming Language) Book
 
 on:
   push:
@@ -10,32 +10,59 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-en:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install mdbook
+        if: ${{ matrix.config.os == 'ubuntu-latest' }}
+        uses: actions-rs/install@v0.1
+        with:
+          crate: mdbook
+          version: latest
+          use-tool-cache: true
+      - name: Clone trpl book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build trpl book
+        run: |
+          mdbook build
+      - name: Publish trpl book
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./trpl-en/book/*
+          host: ${{ secrets.SSH_REMOTE_HOST }}
+          remote: /data/trpl
+          port: ${{ secrets.SSH_REMOTE_PORT }}
+          user: ${{ secrets.SSH_REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+
+  build-zh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-
       - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git trpl-zh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build trpl book
         run: |
-          cd trpl-zh-cn
+          cd trpl-zh
           npm i -g vuepress
           vuepress build ./src
-
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
         with:
-          src: ./trpl-zh-cn/src/.vuepress/dist/*
+          src: ./trpl-zh/src/.vuepress/dist/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
-          remote: /data/trpl
+          remote: /data/trpl/zh
           port: ${{ secrets.SSH_REMOTE_PORT }}
           user: ${{ secrets.SSH_REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
