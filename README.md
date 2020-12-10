@@ -29,7 +29,7 @@ rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
 
-## Build List
+## Build Book List(China mirror)
 
 * [trpl en](http://docs.clset.com/trpl)
 * [trpl zh](http://docs.clset.com/trpl/zh)

@@ -16,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install mdbook
-        if: ${{ matrix.config.os == 'ubuntu-latest' }}
         uses: actions-rs/install@v0.1
         with:
           crate: mdbook
@@ -28,6 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build trpl book
         run: |
+          cd trpl-en
           mdbook build
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
