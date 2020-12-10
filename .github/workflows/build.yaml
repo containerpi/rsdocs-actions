@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-en:
+  build_and_deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -33,7 +33,7 @@ jobs:
         run: |
           cd trpl
           mdbook build
-          cd trpl-zh
+          cd ../trpl-zh
           mdbook build
           cd .. && mkdir -pv trpl/book/zh/ && mv trpl-zh/book/* trpl/book/zh/
       - name: Publish trpl book
