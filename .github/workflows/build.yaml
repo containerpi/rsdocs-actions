@@ -34,7 +34,7 @@ jobs:
         with:
           src: ./trpl-en/book/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
-          remote: /data/trpl
+          remote: /data/docs.clset.com/trpl/
           port: ${{ secrets.SSH_REMOTE_PORT }}
           user: ${{ secrets.SSH_REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -62,7 +62,7 @@ jobs:
         with:
           src: ./trpl-zh/src/.vuepress/dist/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
-          remote: /data/trpl/zh
+          remote: /data/docs.clset.com/trpl/zh
           port: ${{ secrets.SSH_REMOTE_PORT }}
           user: ${{ secrets.SSH_REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
