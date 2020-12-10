@@ -39,7 +39,7 @@ jobs:
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
         with:
-          src: ./trpl-en/book/*
+          src: ./trpl/book/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
           remote: /data/docs.clset.com/trpl/
           port: ${{ secrets.SSH_REMOTE_PORT }}
