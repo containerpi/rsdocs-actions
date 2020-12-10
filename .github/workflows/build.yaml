@@ -25,9 +25,15 @@ jobs:
         run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Clone trpl book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git trpl-zh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build trpl book
         run: |
           cd trpl-en
+          mdbook build
+          cd trpl-zh
           mdbook build
       - name: Publish trpl book
         uses: nogsantos/scp-deploy@master
@@ -38,31 +44,12 @@ jobs:
           port: ${{ secrets.SSH_REMOTE_PORT }}
           user: ${{ secrets.SSH_REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-
-  build-zh:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git trpl-zh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build trpl book
-        run: |
-          cd trpl-zh
-          npm i -g vuepress
-          vuepress build ./src
-      - name: Publish trpl book
+      - name: Publish trpl book(zh)
         uses: nogsantos/scp-deploy@master
         with:
-          src: ./trpl-zh/src/.vuepress/dist/*
+          src: ./trpl-zh/book/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
-          remote: /data/docs.clset.com/trpl/zh
+          remote: /data/docs.clset.com/trpl/zh/
           port: ${{ secrets.SSH_REMOTE_PORT }}
           user: ${{ secrets.SSH_REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
