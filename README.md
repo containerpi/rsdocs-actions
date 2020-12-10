@@ -32,4 +32,4 @@ rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 ## Book List(China mirror) - auto build with github actions
 
 * [trpl en](http://docs.clset.com/trpl)
-* [trpl zh](http://docs.clset.com/trpl/zh) Auto fetch from [@KaiserY](https://github.com/KaiserY/trpl-zh-cn), thanks.
+* [trpl zh](http://docs.clset.com/trpl/zh)  (Auto fetch from [@KaiserY](https://github.com/KaiserY/trpl-zh-cn), thanks.)
