@@ -6,8 +6,13 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: '0 6 * * 5'
+
+  # workflow_dispatch event allows the workflow to be triggered manually
   workflow_dispatch:
+
+  # repository_dispatch event allows the workflow to be triggered via the GitHub API
+  repository_dispatch:
 
 jobs:
   build_and_deploy:
