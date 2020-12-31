@@ -1,5 +1,4 @@
-
-name: Build for TRPL(The Rust Programming Language) Book
+name: Build for TRPL
 
 on:
   push:
