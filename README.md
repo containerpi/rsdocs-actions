@@ -1,6 +1,6 @@
 # The Rust Programming Language
 
-![Build for TRPL Book](https://github.com/containerpi/trpl-actions/workflows/Build%20for%20TRPL%20Book/badge.svg)
+![Build for TRPL](https://github.com/containerpi/trpl-actions/workflows/Build%20for%20TRPL/badge.svg)
 
 This repository contains the source of "The Rust Programming Language" book.
 
