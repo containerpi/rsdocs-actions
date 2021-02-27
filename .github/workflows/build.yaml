@@ -15,8 +15,7 @@ on:
 
 jobs:
   build_and_deploy:
-    # runs-on: ubuntu-latest
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v2
@@ -42,7 +41,7 @@ jobs:
           mdbook build
           cd .. && mkdir -pv trpl/book/zh/ && mv trpl-zh/book/* trpl/book/zh/
       - name: Publish trpl book
-        uses: doggycooldemo/scp-action@v1.0
+        uses: nogsantos/scp-deploy@master
         with:
           src: ./trpl/book/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
