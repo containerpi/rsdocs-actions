@@ -42,7 +42,7 @@ jobs:
           mdbook build
           cd .. && mkdir -pv trpl/book/zh/ && mv trpl-zh/book/* trpl/book/zh/
       - name: Publish trpl book
-        uses: doggycooldemo/ssh-scp-deploy
+        uses: doggycooldemo/ssh-scp-deploy@v2.0
         with:
           src: ./trpl/book/*
           host: ${{ secrets.SSH_REMOTE_HOST }}
