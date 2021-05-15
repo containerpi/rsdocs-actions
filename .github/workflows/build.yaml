@@ -52,6 +52,7 @@ jobs:
           ls -alhtr && \
             cd .. && \
             ossutil sync trpl-archive/ oss://${{ secrets.OSS_BUCKET }}/trpl/ -f --delete
+            ossutil cp index.html open_docs.svg oss://${{ secrets.OSS_BUCKET }}/ -f
       - name: Sending Build Status
         if: always()
         env:
