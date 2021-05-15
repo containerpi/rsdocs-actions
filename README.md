@@ -31,11 +31,10 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 ## Book List(China mirror) - auto build with github actions
 
-* [trpl en](http://docs.clset.com/trpl)
+* [trpl en](http://docs.clset.com/trpl/en)
 * [trpl zh](http://docs.clset.com/trpl/zh)  (Auto fetch from [@KaiserY](https://github.com/KaiserY/trpl-zh-cn), thanks.)
 
 ## Build schedule
 
 * Run every friday at 6:00 AM UTC
 * Triggered manually
-
