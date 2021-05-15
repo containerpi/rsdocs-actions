@@ -38,5 +38,5 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 ## Notes
 
-* Run every friday at 6:00 AM UTC
+* Run every day at 6:00 AM UTC
 * Triggered manually
