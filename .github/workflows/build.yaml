@@ -30,8 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: init oss config
-        uses: manyuanrong/setup-ossutil@v2.0
+        uses: yizhoumo/setup-ossutil@v1
         with:
+          ossutil-version: '1.7.3'
           endpoint: ${{secrets.OSS_ENDPOINT}}
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
@@ -50,7 +51,7 @@ jobs:
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync trpl-archive/* oss://${{ secrets.OSS_BUCKET }}/trpl/ -f --delete
+            ossutil sync trpl-archive/ oss://${{ secrets.OSS_BUCKET }}/trpl/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
