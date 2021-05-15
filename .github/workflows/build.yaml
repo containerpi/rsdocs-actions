@@ -42,10 +42,10 @@ jobs:
           mkdir -pv trpl-archive/{en,zh}
           cd trpl-en && \
             mdbook build && \
-            cp -ar book/* trpl-archive/en/
+            cp -ar book/* ../trpl-archive/en/
           cd ../trpl-zh && \
             mdbook build && \
-            cp -ar book/* trpl-archive/zh/
+            cp -ar book/* ../trpl-archive/zh/
 
           # Upload to oss
           ls -alhtr
