@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 6 * * 5'
+    - cron: '0 6 * * *'
 
   # workflow_dispatch event allows the workflow to be triggered manually
   workflow_dispatch:
@@ -26,26 +26,42 @@ jobs:
           version: latest
           use-tool-cache: true
       - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Clone trpl book
         run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git trpl-zh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: init oss config
+        uses: manyuanrong/setup-ossutil@v2.0
+        with:
+          endpoint: ${{secrets.OSS_ENDPOINT}}
+          access-key-id: ${{secrets.OSS_ID}}
+          access-key-secret: ${{secrets.OSS_SECRET}}
+          sts-token: ""
       - name: Build trpl book
         run: |
-          cd trpl
-          mdbook build
-          cd ../trpl-zh
-          mdbook build
-          cd .. && mkdir -pv trpl/book/zh/ && mv trpl-zh/book/* trpl/book/zh/
-      - name: Publish trpl book
-        uses: nogsantos/scp-deploy@master
-        with:
-          src: ./trpl/book/*
-          host: ${{ secrets.SSH_REMOTE_HOST }}
-          remote: /data/docs.clset.com/trpl/
-          port: ${{ secrets.SSH_REMOTE_PORT }}
-          user: ${{ secrets.SSH_REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # Build trpl book
+          mkdir -pv trpl-archive/{en,zh}
+          cd trpl-en && \
+            mdbook build && \
+            cp -ar book/* trpl-archive/en/
+          cd ../trpl-zh && \
+            mdbook build && \
+            cp -ar book/* trpl-archive/zh/
+
+          # Upload to oss
+          ls -alhtr
+          ossutil sync -f ../trpl-archive/* oss://${{ secrets.OSS_BUCKET }}/trpl/;done
+      - name: Sending Build Status
+        if: always()
+        env:
+          DINGTALK_ACCESS_TOKEN: ${{ secrets.DINGTALK_ACCESS_TOKEN }}
+          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+          JOB_STATE: ${{ job.status }}
+          RUNNER_OS: ${{ runner.os }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 notify.py
