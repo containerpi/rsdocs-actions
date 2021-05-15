@@ -48,8 +48,9 @@ jobs:
             cp -ar book/* ../trpl-archive/zh/
 
           # Upload to oss
-          ls -alhtr
-          ossutil sync -f ../trpl-archive/* oss://${{ secrets.OSS_BUCKET }}/trpl/;done
+          ls -alhtr && \
+            cd .. && \
+            ossutil sync trpl-archive/* oss://${{ secrets.OSS_BUCKET }}/trpl/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
