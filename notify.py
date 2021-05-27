@@ -27,6 +27,7 @@ if __name__ == '__main__':
     github_run_id = os.getenv('GITHUB_RUN_ID')
     runner_os = os.getenv('RUNNER_OS')
     github_repository = os.getenv('GITHUB_REPOSITORY')
+    github_workflow = os.getenv('GITHUB_WORKFLOW')
     if job_status == 'success':
         color = "#1ce43f"
     elif job_status == 'cancelled':
@@ -36,7 +37,7 @@ if __name__ == '__main__':
     message = {
         "msgtype": "markdown",
         "markdown": {
-            "title": "Project Build Info",
+            "title": github_workflow,
             "text": "### Project Build Info #" + github_run_id + "\n\n> status: **<font color=" + color + ">" + str(job_status).upper() + "</font>** \n\n> head ref: **" + github_ref + "** \n\n> runner os: **" + runner_os + "** \n\n> actions url: [" + github_repository + "](https://github.com/" + github_repository + "/actions)\n\n"
         }
     }
