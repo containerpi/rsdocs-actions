@@ -1,9 +1,9 @@
-name: Build for TRPL
+name: Build for Tlborm
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -21,12 +21,12 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
+      - name: Clone tlborm book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/Veykril/tlborm.git tlborm-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/KaiserY/trpl-zh-cn.git trpl-zh
+      - name: Clone tlborm book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/zjp-CN/tlborm.git tlborm-zh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: init oss config
@@ -37,21 +37,20 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build trpl book
+      - name: Build tlborm book
         run: |
-          # Build trpl book
-          mkdir -pv trpl-archive/{en,zh}
-          cd trpl-en && \
+          # Build tlborm book
+          mkdir -pv tlborm-archive/{en,zh}
+          cd tlborm-en && \
             mdbook build && \
-            cp -ar book/* ../trpl-archive/en/
-          cd ../trpl-zh && \
+            cp -ar book/* ../tlborm-archive/en/
+          cd ../tlborm-zh && \
             mdbook build && \
-            cp -ar book/* ../trpl-archive/zh/
-
+            cp -ar book/* ../tlborm-archive/zh/
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync trpl-archive/ oss://${{ secrets.OSS_BUCKET }}/trpl/ -f --delete
+            ossutil sync tlborm-archive/ oss://${{ secrets.OSS_BUCKET }}/tlborm/ -f --delete
             ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
             ossutil cp open_docs.svg oss://${{ secrets.OSS_BUCKET }}/ -f
       - name: Sending Build Status
