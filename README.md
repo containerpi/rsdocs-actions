@@ -1,4 +1,4 @@
-# The Rust Book List
+# The Rust Books
 
 ## Requirements
 
