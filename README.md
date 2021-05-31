@@ -31,10 +31,10 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 ## Book List(China mirror) - auto build with github actions
 
-| Name | Description | Comment |
-|:-:|:- |:- |
-|[trpl en](http://docs.clset.com/trpl/en)| The Rust Programming Language | Fork from [@rust-lang/book](https://github.com/rust-lang/book)|
-|[trpl zh](http://docs.clset.com/trpl/zh)| Rust 程序设计语言（第二版 & 2018 edition）|Auto fetch from [@KaiserY](https://github.com/KaiserY/trpl-zh-cn), thanks.|
+| Name | Language | Comment |
+|:- |:- |:- |
+|[The Rust Programming Language](http://docs.clset.com/trpl/en)| en | Fork from [@rust-lang/book](https://github.com/rust-lang/book)|
+|[Rust 程序设计语言(第二版 & 2018 edition)](http://docs.clset.com/trpl/zh)| zh |Auto fetch from [@KaiserY](https://github.com/KaiserY/trpl-zh-cn), thanks.|
 
 ## Notes
 

@@ -38,7 +38,7 @@ if __name__ == '__main__':
         "msgtype": "markdown",
         "markdown": {
             "title": github_workflow,
-            "text": "### Project Build Info #" + github_run_id + "\n\n> status: **<font color=" + color + ">" + str(job_status).upper() + "</font>** \n\n> head ref: **" + github_ref + "** \n\n> runner os: **" + runner_os + "** \n\n> actions url: [" + github_repository + "](https://github.com/" + github_repository + "/actions)\n\n"
+            "text": "### " + github_workflow + " #" + github_run_id + "\n\n> status: **<font color=" + color + ">" + str(job_status).upper() + "</font>** \n\n> head ref: **" + github_ref + "** \n\n> runner os: **" + runner_os + "** \n\n> actions url: [" + github_repository + "](https://github.com/" + github_repository + "/actions)\n\n"
         }
     }
     dingtalk_send(token, secret, json_data=message)
