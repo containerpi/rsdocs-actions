@@ -28,6 +28,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[The Embedded Rust Book](http://docs.clset.com/rust-embedded/en/) | en | [@rust-embedded](https://github.com/rust-embedded/book) |
 |[Asynchronous Programming in Rust](http://docs.clset.com/async-book/en/) | en | [@rust-lang](https://github.com/rust-lang/async-book) |
 |[The Rust Performance Book](http://docs.clset.com/perf-book/en/) | en | [@rust-lang](https://github.com/nnethercote/perf-book) |
+|[A guide to changes between various editions of Rust](http://docs.clset.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
 
 
 ## Notes
