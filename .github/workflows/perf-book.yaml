@@ -1,4 +1,4 @@
-name: Build for async-book
+name: Build for perf-book
 
 on:
   push:
@@ -21,10 +21,8 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone async-book
-        run: |
-          cargo install mdbook-linkcheck
-          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/async-book.git async-book-en
+      - name: Clone perf-book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/nnethercote/perf-book perf-book-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -36,17 +34,17 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build async-book
+      - name: Build perf-book
         run: |
-          # Build async-book
+          # Build perf-book
           mkdir -pv archive/en
-          cd async-book-en && \
+          cd perf-book-en && \
             mdbook build && \
-            cp -ar book/html/* ../archive/en/
+            cp -ar book/* ../archive/en/
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/async-book/ -f --delete
+            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/perf-book/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
