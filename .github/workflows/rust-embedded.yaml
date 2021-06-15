@@ -1,9 +1,9 @@
-name: Build for Rustwasm
+name: Build for rust-embedded
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -21,8 +21,8 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone rustwasm book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rustwasm/book.git rustwasm-en
+      - name: Clone rust-embedded book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-embedded/book rust-embedded-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -34,17 +34,17 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build rustwasm book
+      - name: Build rust-embedded book
         run: |
-          # Build rustwasm book
+          # Build rust-embedded book
           mkdir -pv archive/en
-          cd rustwasm-en && \
+          cd rust-embedded-en && \
             mdbook build && \
             cp -ar book/* ../archive/en/
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/rustwasm/ -f --delete
+            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/rust-embedded/ -f --delete
       - name: Sending Build Status
         if: always()
         env:

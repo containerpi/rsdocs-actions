@@ -21,6 +21,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[The Little Book of Rust Macros](http://docs.clset.com/tlborm/en/) | en | [@Veykril](https://github.com/Veykril/tlborm) |
 |[Rust 宏小册](http://docs.clset.com/tlborm/zh/) | zh | [@zjp-CN](https://github.com/zjp-CN/tlborm) |
 |[The Rust and WebAssembly Book](http://docs.clset.com/rustwasm/en/) | en | [@rustwasm](https://github.com/rustwasm/book) |
+|[The Embedded Rust Book](http://docs.clset.com/rust-embedded/en/) | en | [@rust-embedded](https://github.com/rust-embedded/book) |
 
 
 ## Notes
