@@ -22,7 +22,9 @@ jobs:
           version: latest
           use-tool-cache: true
       - name: Clone async-book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/async-book.git async-book-en
+        run: |
+          cargo install mdbook-linkcheck
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/async-book.git async-book-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
