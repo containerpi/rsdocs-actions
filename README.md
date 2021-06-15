@@ -5,6 +5,8 @@
 [![Build for Rustwasm](https://github.com/containerpi/rsdocs-actions/actions/workflows/rustwasm.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rustwasm.yaml)
 [![Build for rust-embedded](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-embedded.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-embedded.yaml)
 [![Build for async-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml)
+[![Build for perf-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml)
+
 
 ## Requirements
 
