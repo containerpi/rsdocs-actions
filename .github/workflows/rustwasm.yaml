@@ -1,9 +1,9 @@
-name: Build for Tlborm
+name: Build for Rustwasm
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -21,14 +21,11 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone tlborm book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/Veykril/tlborm.git tlborm-en
+      - name: Clone rustwasm book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rustwasm/book.git rustwasm-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Clone tlborm book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/zjp-CN/tlborm.git tlborm-zh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: init oss config
         uses: yizhoumo/setup-ossutil@v1
         with:
@@ -37,22 +34,17 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build tlborm book
+      - name: Build rustwasm book
         run: |
-          # Build tlborm book
-          mkdir -pv tlborm-archive/{en,zh}
-          cd tlborm-en && \
+          # Build rustwasm book
+          mkdir -pv archive/en
+          cd rustwasm-en && \
             mdbook build && \
-            cp -ar book/* ../tlborm-archive/en/
-          cd ../tlborm-zh && \
-            mdbook build && \
-            cp -ar book/* ../tlborm-archive/zh/
+            cp -ar book/* ../archive/en/
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync tlborm-archive/ oss://${{ secrets.OSS_BUCKET }}/tlborm/ -f --delete
-            ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-            ossutil cp open_docs.svg oss://${{ secrets.OSS_BUCKET }}/ -f
+            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/rustwasm/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
