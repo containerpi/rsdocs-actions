@@ -36,3 +36,8 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 * Run every day at 6:00 AM UTC
 * Triggered manually
+
+
+## Contribute
+
+* Use [issues](https://github.com/containerpi/rsdocs-actions/issues) for everything
