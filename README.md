@@ -20,7 +20,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[Rust 程序设计语言(第二版 & 2018 edition)](http://docs.clset.com/trpl/zh) | zh | [@KaiserY](https://github.com/KaiserY/trpl-zh-cn)|
 |[The Little Book of Rust Macros](http://docs.clset.com/tlborm/en/) | en | [@Veykril](https://github.com/Veykril/tlborm) |
 |[Rust 宏小册](http://docs.clset.com/tlborm/zh/) | zh | [@zjp-CN](https://github.com/zjp-CN/tlborm) |
-|[The Rust and WebAssembly Book](https://github.com/rustwasm/book) | en | [@rustwasm](https://github.com/rustwasm/book) |
+|[The Rust and WebAssembly Book](http://docs.clset.com/rustwasm/en/) | en | [@rustwasm](https://github.com/rustwasm/book) |
 
 
 ## Notes
