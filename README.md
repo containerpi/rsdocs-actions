@@ -30,7 +30,8 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[Asynchronous Programming in Rust](http://docs.clset.com/async-book/en/) | en | [@rust-lang](https://github.com/rust-lang/async-book) |
 |[The Rust Performance Book](http://docs.clset.com/perf-book/en/) | en | [@rust-lang](https://github.com/nnethercote/perf-book) |
 |[A guide to changes between various editions of Rust](http://docs.clset.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
-
+|[Learn Rust with examples](http://docs.clset.com/rust-by-example/en/) | en | [@rust-lang](https://github.com/rust-lang/rust-by-example) |
+|[通过例子学 Rust](http://docs.clset.com/rust-by-example/zh/) | zh | [@rust-lang-cn](https://github.com/rust-lang-cn/rust-by-example-cn) |
 
 ## Notes
 
