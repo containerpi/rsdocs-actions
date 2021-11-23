@@ -1,9 +1,9 @@
-name: Build for Tlborm
+name: Build for Cheats.rs
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -11,22 +11,16 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
-      - name: Install mdbook
-        uses: actions-rs/install@v0.1
-        with:
-          crate: mdbook
-          version: latest
-          use-tool-cache: true
-      - name: Clone tlborm book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/Veykril/tlborm.git tlborm-en
+      - name: Clone cheats.rs book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/ralfbiedert/cheats.rs.git cheats.rs-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Clone tlborm book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/zjp-CN/tlborm.git tlborm-zh
+      - name: Clone cheats.rs book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/kingfree/cheats.rs.git cheats.rs-zh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: init oss config
@@ -37,22 +31,20 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build tlborm book
+      - name: Build cheats.rs book
         run: |
-          # Build tlborm book
-          mkdir -pv tlborm-archive/{en,zh}
-          cd tlborm-en && \
-            mdbook build && \
-            cp -ar book/* ../tlborm-archive/en/
-          cd ../tlborm-zh && \
-            mdbook build && \
-            cp -ar book/* ../tlborm-archive/zh/
+          # Install zola
+          wget -c https://github.com/getzola/zola/releases/download/v0.14.1/zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
+          tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
+          # Build cheats.rs book
+          mkdir -pv cheats.rs-archive/{en,zh}
+          cd cheats.rs-en && \
+            ./zola build && cp -ar public/* ../cheats.rs-archive/en/
+          cd ../cheats.rs-zh && \
+            ./zola build && cp -ar public/* ../cheats.rs-archive/zh/
           # Upload to oss
-          ls -alhtr && \
-            cd .. && \
-            ossutil sync tlborm-archive/ oss://${{ secrets.OSS_BUCKET }}/tlborm/ -f --delete
-            ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-            ossutil cp open_docs.svg oss://${{ secrets.OSS_BUCKET }}/ -f
+          ls -alhtr && cd .. && \
+            ossutil sync cheats.rs-archive/ oss://${{ secrets.OSS_BUCKET }}/cheats.rs/ -f --delete
       - name: Sending Build Status
         if: always()
         env:

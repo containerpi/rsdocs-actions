@@ -32,6 +32,8 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[A guide to changes between various editions of Rust](http://docs.rustqz.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
 |[Learn Rust with examples](http://docs.rustqz.com/rust-by-example/en/) | en | [@rust-lang](https://github.com/rust-lang/rust-by-example) |
 |[通过例子学 Rust](http://docs.rustqz.com/rust-by-example/zh/) | zh | [@rust-lang-cn](https://github.com/rust-lang-cn/rust-by-example-cn) |
+|[Rust Language Cheat Sheet](http://docs.rustqz.com/cheats.rs/en/) | en | [@ralfbiedert](https://github.com/ralfbiedert/cheats.rs) |
+|[Rust 语言备忘清单（简体中文）](http://docs.rustqz.com/cheats.rs/zh/) | zh | [@rust-lang-cn](https://github.com/kingfree/cheats.rs/) |
 
 ## Notes
 
