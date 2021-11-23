@@ -7,7 +7,7 @@
 [![Build for async-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml)
 [![Build for perf-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml)
 [![Build for edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
-
+[![Build for Cheats.rs](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml)
 
 ## Requirements
 

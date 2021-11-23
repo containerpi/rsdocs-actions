@@ -34,14 +34,16 @@ jobs:
       - name: Build cheats.rs book
         run: |
           # Install zola
-          wget -c https://github.com/getzola/zola/releases/download/v0.14.1/zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
-          tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
+          wget -c https://github.com/getzola/zola/releases/download/v0.14.1/zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz && \
+            tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz && ls -al
+
           # Build cheats.rs book
           mkdir -pv cheats.rs-archive/{en,zh}
           cd cheats.rs-en && \
             ./zola build && cp -ar public/* ../cheats.rs-archive/en/
           cd ../cheats.rs-zh && \
             ./zola build && cp -ar public/* ../cheats.rs-archive/zh/
+
           # Upload to oss
           ls -alhtr && cd .. && \
             ossutil sync cheats.rs-archive/ oss://${{ secrets.OSS_BUCKET }}/cheats.rs/ -f --delete
