@@ -18,7 +18,8 @@ jobs:
       - name: Install zola
         run: |
           wget -c https://github.com/getzola/zola/releases/download/v0.14.1/zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
-          tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz && ls -al
+          tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
+          mv zola /usr/local/bin
       - name: Clone cheats.rs book
         run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/ralfbiedert/cheats.rs.git cheats.rs-en
         env:
@@ -40,9 +41,9 @@ jobs:
           # Build cheats.rs book
           mkdir -pv cheats.rs-archive/{en,zh}
           cd cheats.rs-en && \
-            ./zola build && cp -ar public/* ../cheats.rs-archive/en/
+          /usr/local/bin/zola build && cp -ar public/* ../cheats.rs-archive/en/
           cd ../cheats.rs-zh && \
-            ./zola build && cp -ar public/* ../cheats.rs-archive/zh/
+          /usr/local/bin/zola build && cp -ar public/* ../cheats.rs-archive/zh/
 
           # Upload to oss
           ls -alhtr && cd .. && \
