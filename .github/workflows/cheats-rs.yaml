@@ -11,7 +11,7 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
