@@ -15,6 +15,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
+      - name: Install zola
+        run: |
+          wget -c https://github.com/getzola/zola/releases/download/v0.14.1/zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz
+          tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz && ls -al
       - name: Clone cheats.rs book
         run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/ralfbiedert/cheats.rs.git cheats.rs-en
         env:
@@ -33,10 +37,6 @@ jobs:
           sts-token: ""
       - name: Build cheats.rs book
         run: |
-          # Install zola
-          wget -c https://github.com/getzola/zola/releases/download/v0.14.1/zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz && \
-            tar xf zola-v0.14.1-x86_64-unknown-linux-gnu.tar.gz && ls -al
-
           # Build cheats.rs book
           mkdir -pv cheats.rs-archive/{en,zh}
           cd cheats.rs-en && \
