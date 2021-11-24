@@ -1,0 +1,81 @@
+ @media (min-width: 986px) {
+    .dropbox {
+        padding-left: 9rem!important;
+        padding-right: 9rem!important;
+    }
+}
+body {
+    font: 14px 'Varela Round',
+            'Helvetica Neue',
+            'Microsoft Yahei',
+            'Hiragino Sans GB',
+            'Heiti SC',
+            'WenQuanYi Micro Hei',
+            'Helvetica',
+            'Arial',
+            'sans-serif';
+}
+a {
+    color: #525252;
+}
+a:hover,
+a.active,
+a.text-dark:focus,
+a.text-dark:hover {
+    color: rgb(255, 153, 0) !important;
+    text-decoration: none;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+.table thead tr th {
+    border-bottom: 1px;
+}
+.table thead th {
+    color: #868e96;
+    font-size: 80%;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-top: 0 !important;
+}
+.table td, .table th {
+    padding: 14px 12px;
+}
+.table {
+    font-size: 13px;
+}
+.service-logo {
+    height: 68px;
+    margin: 66px auto 42px auto;
+}
+.loader {
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+.loader:before,
+.loader:after {
+    content:"";
+    display: block;
+    border: 16px solid transparent;
+    border-top-color: #43a8ff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: weld-rotate 2s infinite ease-in;
+}
+.loader:before {
+    border-color: transparent  transparent transparent #FF3D00;
+    animation-delay: 0.5s;
+}
+@keyframes weld-rotate {
+    0% , 25% {transform: rotate(0deg)}
+    50% , 75% {transform: rotate(180deg)}
+    100% {transform: rotate(360deg)}
+}
+
+.footer {
+    font-size: 12px;
+}

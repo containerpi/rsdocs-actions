@@ -41,9 +41,10 @@ jobs:
           # Build cheats.rs book
           mkdir -pv cheats.rs-archive/{en,zh}
           cd cheats.rs-en && \
-          /usr/local/bin/zola build && cp -ar public/* ../cheats.rs-archive/en/
-          cd ../cheats.rs-zh && \
-          /usr/local/bin/zola build && cp -ar public/* ../cheats.rs-archive/zh/
+            /usr/local/bin/zola build && \
+            cp -ar public/* ../cheats.rs-archive/en/
+            cd ../cheats.rs-zh && \
+            /usr/local/bin/zola build && cp -ar public/* ../cheats.rs-archive/zh/
 
           # Upload to oss
           ls -alhtr && cd .. && \

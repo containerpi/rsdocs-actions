@@ -47,12 +47,11 @@ jobs:
           cd ../tlborm-zh && \
             mdbook build && \
             cp -ar book/* ../tlborm-archive/zh/
+
           # Upload to oss
           ls -alhtr && \
             cd .. && \
             ossutil sync tlborm-archive/ oss://${{ secrets.OSS_BUCKET }}/tlborm/ -f --delete
-            ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-            ossutil cp open_docs.svg oss://${{ secrets.OSS_BUCKET }}/ -f
       - name: Sending Build Status
         if: always()
         env:

@@ -4,18 +4,70 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Docs</title>
-  <style>
-    .wrap {margin-top: 256px;}
-    .text-center {text-align: center;}
-    img.logo {width: 126px;}
-  </style>
+  <title>Rust OpenDocs</title>
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="assets/main.css?t=211124172723">
 </head>
 <body>
-  <div class="wrap">
-    <div class="text-center">
-      <img src="./open_docs.svg" alt="" class="logo">
+  <div class="container">
+    <div class="row no-gutters justify-content-center mt-5">
+      <img src="assets/opendocs.png?t=1562020202" class="service-logo" alt="OpenDocs">
+    </div>
+    <div class="row no-gutters justify-content-center mt-5 dropbox">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Frok</th>
+              <th scope="col">Build Kit</th>
+              <th scope="col">Build status</th>
+              <th scope="col">Update At</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+      </div>
+      <span class="loader"></span>
+      <span class="message"></span>
     </div>
   </div>
 </body>
+<div class="container">
+  <div class="row no-gutters justify-content-center mt-5 dropbox">
+    <div class="footer">
+      <p>
+        &copy; 2020-2021 Rustqz.com ·
+        <a href="https://github.com/containerpi/rsdocs-actions">
+          <i class="bi bi-github" style="font-size: 16px;"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  $.ajax({
+    url: "books.html",
+    context: document.body,
+    beforeSend: function () {
+      $('.loader').removeClass('d-none');
+      $(".message").hide();
+    },
+    success: function (response) {
+      $('.loader').addClass('d-none');
+      $(".table tbody").html(response);
+    },
+    error: function (err) {
+      $('.loader').addClass('d-none');
+      $(".message").show();
+      $(".message").html("<small class=\"text-muted\"><i class=\"bi bi-quote\"></i>Fetcher rust book list error.</small>");
+    }
+  });
+</script>
 </html>

@@ -47,12 +47,11 @@ jobs:
           cd ../rust-by-example-zh && \
             mdbook build && \
             cp -ar book/* ../rust-by-example-archive/zh/
+
           # Upload to oss
           ls -alhtr && \
             cd .. && \
             ossutil sync rust-by-example-archive/ oss://${{ secrets.OSS_BUCKET }}/rust-by-example/ -f --delete
-            ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-            ossutil cp open_docs.svg oss://${{ secrets.OSS_BUCKET }}/ -f
       - name: Sending Build Status
         if: always()
         env:

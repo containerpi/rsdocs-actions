@@ -41,9 +41,9 @@ jobs:
           cd edition-guide-en && \
             mdbook build && \
             cp -ar book/* ../archive/en/
+
           # Upload to oss
-          ls -alhtr && \
-            cd .. && \
+          ls -alhtr && cd .. && \
             ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/edition-guide/ -f --delete
       - name: Sending Build Status
         if: always()
