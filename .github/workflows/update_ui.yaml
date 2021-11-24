@@ -24,7 +24,7 @@ jobs:
         run: |
           # Upload to oss
           ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-          ossutil cp assets/* oss://${{ secrets.OSS_BUCKET }}/assets/ -f
+          ossutil cp assets/ oss://${{ secrets.OSS_BUCKET }}/assets/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
