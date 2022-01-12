@@ -21,19 +21,19 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 | Name | Language | Comment(fork from) |
 |:- |:- |:- |
-|[The Rust Programming Language](http://docs.rustqz.com/trpl/en) | en | [@rust-lang](https://github.com/rust-lang/book)|
-|[Rust 程序设计语言(第二版 & 2018 edition)](http://docs.rustqz.com/trpl/zh) | zh | [@KaiserY](https://github.com/KaiserY/trpl-zh-cn)|
-|[The Little Book of Rust Macros](http://docs.rustqz.com/tlborm/en/) | en | [@Veykril](https://github.com/Veykril/tlborm) |
-|[Rust 宏小册](http://docs.rustqz.com/tlborm/zh/) | zh | [@zjp-CN](https://github.com/zjp-CN/tlborm) |
-|[The Rust and WebAssembly Book](http://docs.rustqz.com/rustwasm/en/) | en | [@rustwasm](https://github.com/rustwasm/book) |
-|[The Embedded Rust Book](http://docs.rustqz.com/rust-embedded/en/) | en | [@rust-embedded](https://github.com/rust-embedded/book) |
-|[Asynchronous Programming in Rust](http://docs.rustqz.com/async-book/en/) | en | [@rust-lang](https://github.com/rust-lang/async-book) |
-|[The Rust Performance Book](http://docs.rustqz.com/perf-book/en/) | en | [@rust-lang](https://github.com/nnethercote/perf-book) |
-|[A guide to changes between various editions of Rust](http://docs.rustqz.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
-|[Learn Rust with examples](http://docs.rustqz.com/rust-by-example/en/) | en | [@rust-lang](https://github.com/rust-lang/rust-by-example) |
-|[通过例子学 Rust](http://docs.rustqz.com/rust-by-example/zh/) | zh | [@rust-lang-cn](https://github.com/rust-lang-cn/rust-by-example-cn) |
-|[Rust Language Cheat Sheet](http://docs.rustqz.com/cheats.rs/en/) | en | [@ralfbiedert](https://github.com/ralfbiedert/cheats.rs) |
-|[Rust 语言备忘清单（简体中文）](http://docs.rustqz.com/cheats.rs/zh/) | zh | [@kingfree](https://github.com/kingfree/cheats.rs/) |
+|[The Rust Programming Language](http://docs.containerpi.com/trpl/en) | en | [@rust-lang](https://github.com/rust-lang/book)|
+|[Rust 程序设计语言(第二版 & 2018 edition)](http://docs.containerpi.com/trpl/zh) | zh | [@KaiserY](https://github.com/KaiserY/trpl-zh-cn)|
+|[The Little Book of Rust Macros](http://docs.containerpi.com/tlborm/en/) | en | [@Veykril](https://github.com/Veykril/tlborm) |
+|[Rust 宏小册](http://docs.containerpi.com/tlborm/zh/) | zh | [@zjp-CN](https://github.com/zjp-CN/tlborm) |
+|[The Rust and WebAssembly Book](http://docs.containerpi.com/rustwasm/en/) | en | [@rustwasm](https://github.com/rustwasm/book) |
+|[The Embedded Rust Book](http://docs.containerpi.com/rust-embedded/en/) | en | [@rust-embedded](https://github.com/rust-embedded/book) |
+|[Asynchronous Programming in Rust](http://docs.containerpi.com/async-book/en/) | en | [@rust-lang](https://github.com/rust-lang/async-book) |
+|[The Rust Performance Book](http://docs.containerpi.com/perf-book/en/) | en | [@rust-lang](https://github.com/nnethercote/perf-book) |
+|[A guide to changes between various editions of Rust](http://docs.containerpi.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
+|[Learn Rust with examples](http://docs.containerpi.com/rust-by-example/en/) | en | [@rust-lang](https://github.com/rust-lang/rust-by-example) |
+|[通过例子学 Rust](http://docs.containerpi.com/rust-by-example/zh/) | zh | [@rust-lang-cn](https://github.com/rust-lang-cn/rust-by-example-cn) |
+|[Rust Language Cheat Sheet](http://docs.containerpi.com/cheats.rs/en/) | en | [@ralfbiedert](https://github.com/ralfbiedert/cheats.rs) |
+|[Rust 语言备忘清单（简体中文）](http://docs.containerpi.com/cheats.rs/zh/) | zh | [@kingfree](https://github.com/kingfree/cheats.rs/) |
 
 ## Notes
 
