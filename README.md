@@ -34,6 +34,8 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[通过例子学 Rust](http://opendocs.containerpi.com/rust-by-example/zh/) | zh | [@rust-lang-cn](https://github.com/rust-lang-cn/rust-by-example-cn) |
 |[Rust Language Cheat Sheet](http://opendocs.containerpi.com/cheats.rs/en/) | en | [@ralfbiedert](https://github.com/ralfbiedert/cheats.rs) |
 |[Rust 语言备忘清单（简体中文）](http://opendocs.containerpi.com/cheats.rs/zh/) | zh | [@kingfree](https://github.com/kingfree/cheats.rs/) |
+|[A Rust Cookbook](http://opendocs.containerpi.com/rust-cookbook/en/) | en | [@rust-lang-nursery](https://github.com/rust-lang-nursery/rust-cookbook) |
+
 
 ## Notes
 
