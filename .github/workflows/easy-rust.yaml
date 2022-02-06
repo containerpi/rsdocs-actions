@@ -1,9 +1,9 @@
-name: Build for rust-cookbook
+name: Build for easy-rust
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -21,11 +21,12 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone rust-cookbook
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang-nursery/rust-cookbook.git rust-cookbook-en
+      - name: Clone easy-rust book
+        run: |
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/Dhghomon/easy_rust.git easy-rust-en
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/kumakichi/easy_rust_chs.git easy-rust-zh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: init oss config
         uses: yizhoumo/setup-ossutil@v1
         with:
@@ -34,18 +35,21 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build rust-cookbook
+      - name: Build easy-rust book
         run: |
-          # Build rust-cookbook
-          mkdir -pv archive/en
-          cd rust-cookbook-en && \
+          # Build easy-rust book
+          mkdir -pv easy-rust-archive/{en,zh}
+          cd easy-rust-en && \
             mdbook build && \
-            cp -ar book/* ../archive/en/
+            cp -ar book/* ../easy-rust-archive/en/
+          cd ../easy-rust-zh && \
+            mdbook build && \
+            cp -ar book/* ../easy-rust-archive/zh/
 
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/rust-cookbook/ -f --delete
+            ossutil sync easy-rust-archive/ oss://${{ secrets.OSS_BUCKET }}/easy-rust/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
