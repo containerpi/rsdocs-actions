@@ -38,10 +38,10 @@ jobs:
       - name: Build rust-course
         run: |
           # Build rust-course
-          mkdir -pv archive/en
+          mkdir -pv archive/zh
           cd rust-course-zh && \
             mdbook build && \
-            cp -ar book/* ../archive/en/
+            cp -ar book/* ../archive/zh/
 
           # Upload to oss
           ls -alhtr && \
