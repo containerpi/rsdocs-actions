@@ -8,7 +8,7 @@
 [![Build for perf-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml)
 [![Build for edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
 [![Build for Cheats.rs](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml)
-[![Build for Opendocs UI](https://github.com/containerpi/rsdocs-actions/actions/workflows/update_ui.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/update_ui.yaml)
+[![Build for Rust Course](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml)
 
 ## Requirements
 
