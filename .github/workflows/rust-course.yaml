@@ -23,7 +23,7 @@ jobs:
           version: latest
           use-tool-cache: true
       - name: Clone rust-course
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com:sunface/rust-course.git rust-course-zh
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/sunface/rust-course.git rust-course-zh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
