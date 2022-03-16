@@ -1,14 +1,13 @@
-name: Build for Rust Course
+name: Build for Learning Rust By Practice
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
   repository_dispatch:
-
 
 jobs:
   build_and_deploy:
@@ -22,11 +21,10 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone rust-course
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/sunface/rust-course.git rust-course-zh
+      - name: Clone rust-by-practice
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/sunface/rust-by-practice.git rust-by-practice
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: init oss config
         uses: yizhoumo/setup-ossutil@v1
         with:
@@ -35,18 +33,20 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build rust-course
+      - name: Build rust-by-practice
         run: |
-          # Build rust-course
-          mkdir -pv archive/zh
-          cd rust-course-zh && \
+          # Build rust-by-practice
+          mkdir -pv rust-by-practice-archive/{en,zh} && \
             mdbook build && \
-            cp -ar book/* ../archive/zh/
+            cp -ar book/* rust-by-practice-archive/en/ && \
+            cd zh-CN && \
+            mdbook build && \
+            cp -ar book/* ../rust-by-practice-archive/zh/
 
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/rust-course/ -f --delete
+            ossutil sync rust-by-practice-archive/ oss://${{ secrets.OSS_BUCKET }}/rust-by-practice/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
