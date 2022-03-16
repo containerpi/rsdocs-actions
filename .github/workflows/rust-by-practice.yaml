@@ -1,9 +1,9 @@
 name: Build for Learning Rust By Practice
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -36,7 +36,9 @@ jobs:
       - name: Build rust-by-practice
         run: |
           # Build rust-by-practice
-          mkdir -pv rust-by-practice-archive/{en,zh} && \
+          cd rust-by-practice && \
+            mkdir -pv rust-by-practice-archive/{en,zh} && \
+            ls -alh && \
             mdbook build && \
             cp -ar book/* rust-by-practice-archive/en/ && \
             cd zh-CN && \
