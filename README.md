@@ -38,7 +38,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[Rust 语言备忘清单（简体中文）](http://opendocs.containerpi.com/cheats.rs/zh/) | zh | [@kingfree](https://github.com/kingfree/cheats.rs/) |
 |[A Rust Cookbook](http://opendocs.containerpi.com/rust-cookbook/en/) | en | [@rust-lang-nursery](https://github.com/rust-lang-nursery/rust-cookbook) |
 |[Rust语言圣经 (The Course)](http://opendocs.containerpi.com/rust-course/zh/) | zh | [@sunface](https://github.com/sunface/rust-course) |
-|[Learning Rust By Practice)](http://opendocs.containerpi.com/rust-by-practice/en/) | en | [@sunface](https://github.com/sunface/rust-by-practice) |
+|[Learning Rust By Practice](http://opendocs.containerpi.com/rust-by-practice/en/) | en | [@sunface](https://github.com/sunface/rust-by-practice) |
 |[Rust 练习实践](http://opendocs.containerpi.com/rust-by-practice/zh/) | zh | [@sunface](https://github.com/sunface/rust-by-practice/blob/master/zh-CN/src/why-exercise.md) |
 
 ## Notes
