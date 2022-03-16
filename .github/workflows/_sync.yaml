@@ -24,7 +24,9 @@ jobs:
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
       - name: sync books list metadata.
-        run: ossutil sync _books.html oss://${{ secrets.OSS_BUCKET }}/ -f --delete
+        run: |
+          cd rust-by-practice && \
+          ossutil sync _books.html oss://${{ secrets.OSS_BUCKET }}/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
