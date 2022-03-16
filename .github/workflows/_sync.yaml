@@ -26,7 +26,7 @@ jobs:
       - name: sync books list metadata.
         run: |
           ls -alh && \
-          ossutil cp _books.html oss://${{ secrets.OSS_BUCKET }}/_books.html -f --delete
+          ossutil cp _books.html oss://${{ secrets.OSS_BUCKET }}/_books.html -f
       - name: Sending Build Status
         if: always()
         env:
