@@ -15,6 +15,16 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
+      - name: Install mdbook
+        uses: actions-rs/install@v0.1
+        with:
+          crate: mdbook
+          version: latest
+          use-tool-cache: true
+      - name: Clone rust-by-practice
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/sunface/rust-by-practice.git rust-by-practice
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: init oss config
         uses: yizhoumo/setup-ossutil@v1
         with:
