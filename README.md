@@ -24,8 +24,8 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 | Name | Language | Comment(fork from) |
 |:- |:- |:- |
-|[The Rust Programming Language](http://opendocs.containerpi.com/trpl/en) | en | [@rust-lang](https://github.com/rust-lang/book)|
-|[Rust 程序设计语言(第二版 & 2018 edition)](http://opendocs.containerpi.com/trpl/zh) | zh | [@KaiserY](https://github.com/KaiserY/trpl-zh-cn)|
+|[The Rust Programming Language(2021 edition)](http://opendocs.containerpi.com/trpl/en) | en | [@rust-lang](https://github.com/rust-lang/book)|
+|[Rust 程序设计语言(2021 edition)](http://opendocs.containerpi.com/trpl/zh) | zh | [@KaiserY](https://github.com/KaiserY/trpl-zh-cn)|
 |[The Little Book of Rust Macros](http://opendocs.containerpi.com/tlborm/en/) | en | [@Veykril](https://github.com/Veykril/tlborm) |
 |[Rust 宏小册](http://opendocs.containerpi.com/tlborm/zh/) | zh | [@zjp-CN](https://github.com/zjp-CN/tlborm) |
 |[The Rust and WebAssembly Book](http://opendocs.containerpi.com/rustwasm/en/) | en | [@rustwasm](https://github.com/rustwasm/book) |
