@@ -1,10 +1,13 @@
-name: Build for Opendocs UI
+name: Build for async-book
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
+  repository_dispatch:
 
 jobs:
   build_and_deploy:
@@ -12,6 +15,19 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
+      - name: Install mdbook
+        uses: actions-rs/install@v0.1
+        with:
+          crate: mdbook
+          version: latest
+          use-tool-cache: true
+      - name: Clone async-book
+        run: |
+          cargo install mdbook-linkcheck
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/async-book.git async-book-en
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: init oss config
         uses: yizhoumo/setup-ossutil@v1
         with:
@@ -20,12 +36,18 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build opendocs UI.
+      - name: Build async-book
         run: |
+          # Build async-book
+          mkdir -pv archive/en
+          cd async-book-en && \
+            mdbook build && \
+            cp -ar book/html/* ../archive/en/
+
           # Upload to oss
-          ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-          ossutil cp _books.html oss://${{ secrets.OSS_BUCKET }}/ -f
-          ossutil cp -r assets oss://${{ secrets.OSS_BUCKET }}/assets/ -f
+          ls -alhtr && \
+            cd .. && \
+            ossutil sync archive/ oss://${{ secrets.OSS_BUCKET }}/async-book/ -f --delete
       - name: Sending Build Status
         if: always()
         env:

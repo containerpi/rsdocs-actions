@@ -1,15 +1,16 @@
 # The Rust Books
 
-![Build for TRPL](https://github.com/containerpi/trpl-actions/workflows/Build%20for%20TRPL/badge.svg)
-[![Build for Tlborm](https://github.com/containerpi/rsdocs-actions/actions/workflows/tlborm.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/tlborm.yaml)
-[![Build for Rustwasm](https://github.com/containerpi/rsdocs-actions/actions/workflows/rustwasm.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rustwasm.yaml)
-[![Build for rust-embedded](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-embedded.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-embedded.yaml)
-[![Build for async-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml)
-[![Build for perf-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml)
-[![Build for edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
-[![Build for Cheats.rs](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml)
-[![Build for Rust Course](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml)
-[![Build for Learning Rust By Practice](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-by-practice.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-by-practice.yaml)
+[![TRPL](https://github.com/containerpi/rsdocs-actions/actions/workflows/trpl.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/trpl.yaml)
+[![tlborm](https://github.com/containerpi/rsdocs-actions/actions/workflows/tlborm.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/tlborm.yaml)
+[![rustwasm](https://github.com/containerpi/rsdocs-actions/actions/workflows/rustwasm.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rustwasm.yaml)
+[![rust-embedded](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-embedded.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-embedded.yaml)
+[![async-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/async-book.yaml)
+[![perf-book](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/perf-book.yaml)
+[![edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
+[![cheats.rs](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/cheats-rs.yaml)
+[![rust-course](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml)
+[![learning-rust-by-practice](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-by-practice.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-by-practice.yaml)
+[![the-rust-edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
 
 ## Requirements
 
@@ -31,7 +32,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[The Embedded Rust Book](http://opendocs.containerpi.com/rust-embedded/en/) | en | [@rust-embedded](https://github.com/rust-embedded/book) |
 |[Asynchronous Programming in Rust](http://opendocs.containerpi.com/async-book/en/) | en | [@rust-lang](https://github.com/rust-lang/async-book) |
 |[The Rust Performance Book](http://opendocs.containerpi.com/perf-book/en/) | en | [@rust-lang](https://github.com/nnethercote/perf-book) |
-|[A guide to changes between various editions of Rust](http://opendocs.containerpi.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
+|[The Rust Edition Guide](http://opendocs.containerpi.com/edition-guide/en/) | en | [@rust-lang](https://github.com/rust-lang/edition-guide) |
 |[Learn Rust with examples](http://opendocs.containerpi.com/rust-by-example/en/) | en | [@rust-lang](https://github.com/rust-lang/rust-by-example) |
 |[通过例子学 Rust](http://opendocs.containerpi.com/rust-by-example/zh/) | zh | [@rust-lang-cn](https://github.com/rust-lang-cn/rust-by-example-cn) |
 |[Rust Language Cheat Sheet](http://opendocs.containerpi.com/cheats.rs/en/) | en | [@ralfbiedert](https://github.com/ralfbiedert/cheats.rs) |
