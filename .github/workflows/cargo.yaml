@@ -44,7 +44,7 @@ jobs:
           cd cargo-en/src/doc && \
             mdbook build && \
             cp -ar book/* ../../../cargo-archive/en/
-          cd ../cargo-zh && \
+          cd ../../../cargo-zh && \
             mdbook build && \
             cp -ar docs/* ../cargo-archive/zh/
 
