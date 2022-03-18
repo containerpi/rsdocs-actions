@@ -1,0 +1,59 @@
+name: Build for actix-web
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install mdbook
+        uses: actions-rs/install@v0.1
+        with:
+          crate: mdbook
+          version: latest
+          use-tool-cache: true
+      - name: Clone actix-web book
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/zzy/actix-web-zh-cn.git actix-web-zh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: init oss config
+        uses: yizhoumo/setup-ossutil@v1
+        with:
+          ossutil-version: '1.7.3'
+          endpoint: ${{secrets.OSS_ENDPOINT}}
+          access-key-id: ${{secrets.OSS_ID}}
+          access-key-secret: ${{secrets.OSS_SECRET}}
+          sts-token: ""
+      - name: Build actix-web book
+        run: |
+          # Build actix-web book
+          mkdir -pv actix-web-archive/{en,zh}
+          cd actix-web-zh && \
+            mdbook build && \
+            cp -ar book/* ../actix-web-archive/zh/
+
+          # Upload to oss
+          ls -alhtr && \
+            cd .. && \
+            ossutil sync actix-web-archive/ oss://${{ secrets.OSS_BUCKET }}/actix-web/ -f --delete
+      - name: Sending Build Status
+        if: always()
+        env:
+          DINGTALK_ACCESS_TOKEN: ${{ secrets.DINGTALK_ACCESS_TOKEN }}
+          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+          JOB_STATE: ${{ job.status }}
+          RUNNER_OS: ${{ runner.os }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_WORKFLOW: ${{ env.GITHUB_WORKFLOW }}
+        run: python3 notify.py
