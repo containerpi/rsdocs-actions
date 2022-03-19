@@ -11,6 +11,9 @@
 [![rust-course](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-course.yaml)
 [![learning-rust-by-practice](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-by-practice.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-by-practice.yaml)
 [![the-rust-edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
+[![actix-web](https://github.com/containerpi/rsdocs-actions/actions/workflows/actix-web.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/actix-web.yaml)
+[![cargo](https://github.com/containerpi/rsdocs-actions/actions/workflows/cargo.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/cargo.yaml)
+[![edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
 
 ## Requirements
 
@@ -41,6 +44,10 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[Rust语言圣经 (The Course)](http://opendocs.containerpi.com/rust-course/zh/) | zh | [@sunface](https://github.com/sunface/rust-course) |
 |[Learning Rust By Practice](http://opendocs.containerpi.com/rust-by-practice/en/) | en | [@sunface](https://github.com/sunface/rust-by-practice) |
 |[Rust 练习实践](http://opendocs.containerpi.com/rust-by-practice/zh/) | zh | [@sunface](https://github.com/sunface/rust-by-practice/blob/master/zh-CN/src/why-exercise.md) |
+|[Rust Cargo 官书（非官方翻译)](http://opendocs.containerpi.com/cargo/zh/) | zh | [@chinanf-boy](https://github.com/chinanf-boy/cargo-book-zh) |
+|[The Cargo Book](http://opendocs.containerpi.com/cargo/en/) | en | [@rust-lang](https://github.com/rust-lang/cargo) |
+|[actix-web 中文文档](http://opendocs.containerpi.com/actix-web/zh/) | zh | [@zzy](https://github.com/zzy/actix-web-zh-cn) |
+|[Rust 实践指南](http://opendocs.containerpi.com/rust-guide/zh/) | zh | [@sunface](https://github.com/zzy/rust-guide) |
 
 ## Notes
 
