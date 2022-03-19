@@ -13,7 +13,7 @@
 [![the-rust-edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
 [![actix-web](https://github.com/containerpi/rsdocs-actions/actions/workflows/actix-web.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/actix-web.yaml)
 [![cargo](https://github.com/containerpi/rsdocs-actions/actions/workflows/cargo.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/cargo.yaml)
-[![edition-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/edition-guide.yaml)
+[![rust-guide](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-guide.yaml/badge.svg)](https://github.com/containerpi/rsdocs-actions/actions/workflows/rust-guide.yaml)
 
 ## Requirements
 
