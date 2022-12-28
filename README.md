@@ -48,6 +48,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[The Cargo Book](http://opendocs.containerpi.com/cargo/en/) | en | [@rust-lang](https://github.com/rust-lang/cargo) |
 |[actix-web 中文文档](http://opendocs.containerpi.com/actix-web/zh/) | zh | [@zzy](https://github.com/zzy/actix-web-zh-cn) |
 |[Rust 实践指南](http://opendocs.containerpi.com/rust-guide/zh/) | zh | [@sunface](https://github.com/zzy/rust-guide) |
+|[Comprehensive Rust](http://opendocs.containerpi.com/comprehensive-rust/en/) | en | [@google](https://github.com/google/comprehensive-rust) |
 
 ## Notes
 
