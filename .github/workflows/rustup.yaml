@@ -39,11 +39,12 @@ jobs:
           mkdir -pv rustup-archive/{en,zh}
           cd rustup-en/doc && \
             mdbook build && \
+            ls -al && \
             cp -ar book/* ../../rustup-archive/en/
 
           # Upload to oss
           ls -alhtr && \
-            cd .. && \
+            cd ../../ && \
             ossutil sync rustup-archive/ oss://${{ secrets.OSS_BUCKET }}/rustup/ -f --delete
       - name: Sending Build Status
         if: always()
