@@ -1,11 +1,11 @@
-name: Build for actix-web
+name: Build for rustup Doc
 
 on:
   # push:
   #   branches:
   #     - master
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '10 6 * * *'
   workflow_dispatch:
   repository_dispatch:
 
@@ -21,8 +21,8 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone actix-web book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/zzy/actix-web-zh-cn.git actix-web-zh
+      - name: Clone rustup doc
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com:rust-lang/rustup.git rustup-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: init oss config
@@ -33,18 +33,18 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build actix-web book
+      - name: Build rustup book
         run: |
-          # Build actix-web book
-          mkdir -pv actix-web-archive/{en,zh}
-          cd actix-web-zh && \
+          # Build rustup book
+          mkdir -pv rustup-archive/{en,zh}
+          cd rustup-en/src/doc && \
             mdbook build && \
-            cp -ar book/* ../actix-web-archive/zh/
+            cp -ar book/* ../../../rustup-archive/en/
 
           # Upload to oss
           ls -alhtr && \
             cd .. && \
-            ossutil sync actix-web-archive/ oss://${{ secrets.OSS_BUCKET }}/actix-web/ -f --delete
+            ossutil sync rustup-archive/ oss://${{ secrets.OSS_BUCKET }}/rustup/ -f --delete
       - name: Sending Build Status
         if: always()
         env:
