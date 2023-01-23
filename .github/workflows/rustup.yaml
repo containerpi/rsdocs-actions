@@ -22,7 +22,7 @@ jobs:
           version: latest
           use-tool-cache: true
       - name: Clone rustup doc
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com:rust-lang/rustup.git rustup-en
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/rustup.git rustup-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: init oss config
