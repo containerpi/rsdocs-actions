@@ -1,4 +1,4 @@
-name: Build for pyo3 Doc
+name: Build for pyo3
 
 on:
   # push:
@@ -44,8 +44,7 @@ jobs:
             cp -ar target/guide/* ../pyo3-archive/en/
 
           # Upload to oss
-          ls -alhtr && \
-            cd ../../ && \
+          cd ../ && \
             ossutil sync pyo3-archive/ oss://${{ secrets.OSS_BUCKET }}/pyo3/ -f --delete
       - name: Sending Build Status
         if: always()

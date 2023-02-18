@@ -1,9 +1,9 @@
 name: Sync Metadata to OSS
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,6 @@ jobs:
         run: |
           # Upload to oss
           ossutil cp index.html oss://${{ secrets.OSS_BUCKET }}/ -f
-          ossutil cp _books.html oss://${{ secrets.OSS_BUCKET }}/ -f
           ossutil cp -r assets oss://${{ secrets.OSS_BUCKET }}/assets/ -f
       - name: Sending Build Status
         if: always()
