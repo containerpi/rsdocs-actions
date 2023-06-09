@@ -51,6 +51,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[Comprehensive Rust](http://opendocs.containerpi.com/comprehensive-rust/en/) | en | [@google](https://github.com/google/comprehensive-rust) |
 |[Rustup: the Rust toolchain installer](http://opendocs.containerpi.com/rustup/en/) | en | [@rust-lang](https://github.com/rust-lang/rustup) |
 |[PyO3 user guide](http://opendocs.containerpi.com/pyo3/en/) | en | [@PyO3](https://github.com/PyO3/pyo3) |
+|[Learn Rust Easy](http://opendocs.containerpi.com/Learn-rust-easy/zh/) | zh | [@令狐壹冲](https://github.com/RustyCab/LearnRustEasy) |
 
 ## Notes
 
