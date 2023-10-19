@@ -1,9 +1,9 @@
 name: Build for comprehensive-rust(en&zh)
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
