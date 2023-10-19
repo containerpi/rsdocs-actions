@@ -1,4 +1,4 @@
-name: Build for comprehensive-rust
+name: Build for comprehensive-rust(en&zh)
 
 on:
   # push:
@@ -24,7 +24,10 @@ jobs:
       - name: Clone comprehensive-rust
         run: |
           cargo install mdbook-svgbob
-          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/google/comprehensive-rust comprehensive-rust-en
+          cargo install mdbook-i18n-helpers
+          cargo install --path mdbook-exerciser
+          cargo install --path mdbook-course
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/google/comprehensive-rust comprehensive-rust
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -40,9 +43,17 @@ jobs:
         run: |
           # Build comprehensive-rust
           mkdir -pv archive/en
-          cd comprehensive-rust-en && \
-            mdbook build && \
-            cp -ar book/* ../archive/en/
+          cd comprehensive-rust
+
+          # build english version.
+          mdbook build
+          cp -ar book/* ../archive/en/
+
+          # build chinese version.
+          export MDBOOK_BOOK__LANGUAGE=zh-CN
+          rm -rf book/
+          mdbook build
+          cp -ar book/* ../archive/zh/
 
           # Upload to oss
           ls -alhtr && cd .. && \
