@@ -23,11 +23,11 @@ jobs:
           use-tool-cache: true
       - name: Clone comprehensive-rust
         run: |
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/google/comprehensive-rust comprehensive-rust
           cargo install mdbook-svgbob
           cargo install mdbook-i18n-helpers
           cargo install --path mdbook-exerciser
           cargo install --path mdbook-course
-          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/google/comprehensive-rust comprehensive-rust
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
