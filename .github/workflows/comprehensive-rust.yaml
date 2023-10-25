@@ -54,7 +54,7 @@ jobs:
           export MDBOOK_BOOK__LANGUAGE=zh-CN
           rm -rf book/
           mdbook build
-          cp -ar book/* ../archive/zh/
+          cp -ar book/html/* ../archive/zh/
 
           # Upload to oss
           ls -alhtr && cd .. && \
