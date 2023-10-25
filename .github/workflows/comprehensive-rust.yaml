@@ -1,9 +1,9 @@
 name: Build for comprehensive-rust(en&zh)
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -24,6 +24,7 @@ jobs:
       - name: Clone comprehensive-rust
         run: |
           git clone https://x-access-token:${GITHUB_TOKEN}@github.com/google/comprehensive-rust comprehensive-rust
+          cd comprehensive-rust
           cargo install mdbook-svgbob
           cargo install mdbook-i18n-helpers
           cargo install --path mdbook-exerciser
