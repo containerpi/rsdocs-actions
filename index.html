@@ -1,75 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rust OpenDocs</title>
-  <link rel="shortcut icon" href="assets/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.2/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/main.css?t=211124172723">
-</head>
-<body>
-  <div class="container">
-    <div class="row no-gutters justify-content-center mt-5">
-      <img src="assets/opendocs.png?t=1562020202" class="service-logo" alt="OpenDocs">
-    </div>
-    <div class="row no-gutters justify-content-center mt-5 dropbox">
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Book Name</th>
-              <th scope="col">Frok</th>
-              <th scope="col">Build Kit</th>
-              <th scope="col">Build status</th>
-              <th scope="col">Create At</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rust OpenDocs</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.2/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/main.css?t=211124172723"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row no-gutters justify-content-center mt-5">
+        <img
+          src="assets/opendocs.png?t=1562020202"
+          class="service-logo"
+          alt="OpenDocs"
+        />
       </div>
-      <span class="loader"></span>
-      <span class="message"></span>
+      <div class="row no-gutters justify-content-center mt-5 dropbox">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Frok</th>
+                <th scope="col">Build Kit</th>
+                <th scope="col">Build status</th>
+                <th scope="col">Create At</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <span class="loader"></span>
+        <span class="message"></span>
+      </div>
+    </div>
+  </body>
+  <div class="container">
+    <div class="row no-gutters justify-content-center mt-5 dropbox">
+      <div class="footer">
+        <p>
+          &copy; 2020-2024 DadouLab.SIG ·
+          <a
+            href="https://github.com/containerpi/rsdocs-actions"
+            target="_blank"
+          >
+            <i class="bi bi-github" style="font-size: 16px"></i>
+          </a>
+          ·
+          <a href="https://github.com/containerpi/rsdocs-actions/issues"
+            >Issues</a
+          >
+        </p>
+      </div>
     </div>
   </div>
-</body>
-<div class="container">
-  <div class="row no-gutters justify-content-center mt-5 dropbox">
-    <div class="footer">
-      <p>
-        &copy; 2020-2024 ContainerPI.com ·
-        <a href="https://github.com/containerpi/rsdocs-actions" target="_blank">
-          <i class="bi bi-github" style="font-size: 16px;"></i>
-        </a> ·
-        <a href="https://github.com/containerpi/rsdocs-actions/issues">Issues</a>
-      </p>
-    </div>
-  </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script type="text/javascript">
-  $.ajax({
-    url: "_books.html",
-    context: document.body,
-    beforeSend: function () {
-      $('.loader').removeClass('d-none');
-      $(".message").hide();
-    },
-    success: function (response) {
-      $('.loader').addClass('d-none');
-      $(".table tbody").html(response);
-    },
-    error: function (err) {
-      $('.loader').addClass('d-none');
-      $(".message").show();
-      $(".message").html("<small class=\"text-muted\"><i class=\"bi bi-quote\"></i>Fetcher rust book list error.</small>");
-    }
-  });
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $.ajax({
+      url: "_books.html",
+      context: document.body,
+      beforeSend: function () {
+        $(".loader").removeClass("d-none");
+        $(".message").hide();
+      },
+      success: function (response) {
+        $(".loader").addClass("d-none");
+        $(".table tbody").html(response);
+      },
+      error: function (err) {
+        $(".loader").addClass("d-none");
+        $(".message").show();
+        $(".message").html(
+          '<small class="text-muted"><i class="bi bi-quote"></i>Fetcher rust book list error.</small>'
+        );
+      },
+    });
+  </script>
 </html>
