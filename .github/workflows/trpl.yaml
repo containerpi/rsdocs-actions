@@ -22,10 +22,7 @@ jobs:
           version: latest
           use-tool-cache: true
       - name: Clone trpl book
-        run: |
-          cargo install mdbook-linkcheck
-          cargo install typst-pdf
-          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
+        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Clone trpl book
@@ -42,6 +39,8 @@ jobs:
           sts-token: ""
       - name: Build trpl book
         run: |
+          cargo install mdbook-linkcheck
+          
           # Build trpl book
           mkdir -pv trpl-archive/{en,zh}
           cd trpl-en && \
