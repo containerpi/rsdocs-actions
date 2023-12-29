@@ -1,9 +1,9 @@
 name: Build for TRPL
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch:
@@ -22,7 +22,10 @@ jobs:
           version: latest
           use-tool-cache: true
       - name: Clone trpl book
-        run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
+        run: |
+          cargo install mdbook-linkcheck
+          cargo install mdbook-typst-pdf
+          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Clone trpl book
