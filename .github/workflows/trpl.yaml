@@ -24,7 +24,7 @@ jobs:
       - name: Clone trpl book
         run: |
           cargo install mdbook-linkcheck
-          cargo install mdbook-typst-pdf
+          cargo install typst-pdf
           git clone https://x-access-token:${GITHUB_TOKEN}@github.com/rust-lang/book.git trpl-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
