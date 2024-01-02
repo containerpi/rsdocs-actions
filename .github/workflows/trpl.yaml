@@ -88,7 +88,8 @@ jobs:
             cp -ar book/* ../trpl-archive/en/
           cd ../trpl-zh && \
             mdbook build && \
-            cp -ar book/* ../trpl-archive/zh/
+            ls -al && \
+            cp -ar book/html/* ../trpl-archive/zh/
 
           # Upload to oss
           ls -alhtr && \
