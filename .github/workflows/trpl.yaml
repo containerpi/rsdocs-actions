@@ -90,6 +90,7 @@ jobs:
             mdbook build && \
             ls -al && \
             cp -ar book/html/* ../trpl-archive/zh/
+            cp "book/typst-pdf/Rust 程序设计语言 简体中文版.pdf" ../trpl-archive/zh/
 
           # Upload to oss
           ls -alhtr && \
