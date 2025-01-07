@@ -47,11 +47,11 @@ jobs:
           mkdir -pv std-training-archive/{en,zh}
           cd std-training-zh/book/ && \
             /tmp/mdbook/mdbook build && \
-            cp -ar book/* ../std-training-archive/zh/
+            cp -ar book/* ../../std-training-archive/zh/
 
           cd ../../std-training-en/book/ && \
             /tmp/mdbook/mdbook build && \
-            cp -ar book/* ../std-training-archive/en/
+            cp -ar book/* ../../std-training-archive/en/
 
           # Upload to oss
           ls -alhtr && \
