@@ -45,15 +45,13 @@ jobs:
         run: |
           # Build std-training book
           mkdir -pv std-training-archive/{en,zh}
-          cd std-training-zh && \
-            mkdir -pv book_out && \
-            /tmp/mdbook/mdbook build book/ -d book_out && \
-            cp -ar book_out/* ../std-training-archive/zh/
+          cd std-training-zh/book/ && \
+            /tmp/mdbook/mdbook build && \
+            cp -ar book/* ../std-training-archive/zh/
 
-          cd ../std-training-en && \
-            mkdir -pv book_out && \
-            /tmp/mdbook/mdbook build book/ -d book_out && \
-            cp -ar book_out/* ../std-training-archive/en/
+          cd ../../std-training-en/book/ && \
+            /tmp/mdbook/mdbook build && \
+            cp -ar book/* ../std-training-archive/en/
 
           # Upload to oss
           ls -alhtr && \
