@@ -55,7 +55,7 @@ jobs:
 
           # Upload to oss
           ls -alhtr && \
-            cd .. && \
+            cd ../../ && \
             ossutil sync std-training-archive/ oss://${{ secrets.OSS_BUCKET }}/std-training/ -f --delete
       - name: Sending Build Status
         if: always()
