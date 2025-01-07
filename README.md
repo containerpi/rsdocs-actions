@@ -53,6 +53,9 @@ rust-lang/rust uses in [this file][rust-mdbook].
 |[PyO3 user guide](http://opendocs.containerpi.com/pyo3/en/) | en | [@PyO3](https://github.com/PyO3/pyo3) |
 |[Learn Rust Easy](http://opendocs.containerpi.com/Learn-rust-easy/zh/) | zh | [@令狐壹冲](https://github.com/RustyCab/LearnRustEasy) |
 
+* Embedded Rust on Espressif ([en](http://opendocs.containerpi.com/std-training/en/) / [zh](http://opendocs.containerpi.com/std-training/zh/))
+* The Rust on ESP Book ([en](http://opendocs.containerpi.com/rust-on-esp/en/) / [zh](http://opendocs.containerpi.com/rust-on-esp/zh/))
+
 ## Notes
 
 * Run every day at 6:00 AM UTC
