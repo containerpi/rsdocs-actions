@@ -46,10 +46,12 @@ jobs:
           # Build std-training book
           mkdir -pv std-training-archive/{en,zh}
           cd std-training-zh && \
+            mkdir -pv book_out && \
             /tmp/mdbook/mdbook build book/ -d book_out && \
             cp -ar book_out/* ../std-training-archive/zh/
 
           cd ../std-training-en && \
+            mkdir -pv book_out && \
             /tmp/mdbook/mdbook build book/ -d book_out && \
             cp -ar book_out/* ../std-training-archive/en/
 
