@@ -55,6 +55,7 @@ rust-lang/rust uses in [this file][rust-mdbook].
 
 * Embedded Rust on Espressif ([en](http://opendocs.containerpi.com/std-training/en/) / [zh](http://opendocs.containerpi.com/std-training/zh/))
 * The Rust on ESP Book ([en](http://opendocs.containerpi.com/rust-on-esp/en/) / [zh](http://opendocs.containerpi.com/rust-on-esp/zh/))
+* impl Rust for ESP32 ([en](http://opendocs.containerpi.com/esp32-book/en/) / zh)
 
 ## Notes
 
