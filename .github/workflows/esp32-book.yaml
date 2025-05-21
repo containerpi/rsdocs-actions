@@ -21,7 +21,7 @@ jobs:
           crate: mdbook
           version: latest
           use-tool-cache: true
-      - name: Clone rust-cookbook
+      - name: Clone esp32-book
         run: git clone https://x-access-token:${GITHUB_TOKEN}@github.com/ImplFerris/esp32-book.git esp32-book-en
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,11 +34,11 @@ jobs:
           access-key-id: ${{secrets.OSS_ID}}
           access-key-secret: ${{secrets.OSS_SECRET}}
           sts-token: ""
-      - name: Build rust-cookbook
+      - name: Build esp32-book
         run: |
-          # Build rust-cookbook
+          # Build esp32-book
           mkdir -pv archive/en
-          cd rust-cookbook-en && \
+          cd esp32-book-en && \
             mdbook build && \
             cp -ar book/* ../archive/en/
 
